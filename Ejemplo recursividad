@@ -1,0 +1,77 @@
+// ejemploRecursividad.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int factorial(int n);
+int suma_1(int n);
+int horner(int x, int N);
+void menu(int option);
+int main()
+{
+    int option=0,
+    menu( option);
+    return 0;
+
+}
+
+void menu(int option) {
+    int opcion, N, x, num;
+    do {
+        cout << "=====MENU=====" << endl;
+        cout << "1. Opcion 1 Factorial" << endl;
+        cout << " 2. Opcion 2 Suma de todos los naturales hasta N" << endl;
+        cout << "3. Opcion 3 Expresion de Horner" << endl;
+        cout << "4. Salir" << endl;
+        cin >> opcion;
+        switch (opcion )
+        {
+        case 1:
+            cout << "Ingrese el numero a calcular: ";
+            cin >> num;
+            cout << "El factorial de " << num << "es: " << factorial(num);
+           
+            break;
+        case 2:
+            cout << "Elegiste suma de todos los naturales hasta N" << endl;
+            cout << "Introduzca N" << endl;
+            cin >> N;
+            cout << "La suma de todos los naturales hasta " << N << " es: " << suma_1(N);
+            break;
+
+            
+        case 3:
+            cout << "Ingrese el valor de N" << endl;
+            cin >> N;
+            cout << "Ingrese el valor de X" << endl;
+            cin >> x;
+            cout << "El resultado de la serie Horner de " << x << " elevado hasta " << N << " es " << horner(x, N);
+            break;
+        case 4:
+            cout << "Adios";
+        default:
+            cout << "Opcion invalida intente de nuevo " << endl;
+
+          
+        }
+    } while (opcion != 4);
+}
+int suma_1(int n) {
+    if (n == 1)
+        return 1;
+    return n + suma_1(n - 1);
+}
+
+int horner(int x,int N) {
+    if (N == 1)
+        return x;
+    return pow(x, N) + horner(x, N - 1);
+}
+int factorial(int n) {
+    if ((n == 0) || (n == 1))
+        return 1;
+    else
+        return factorial(n - 1) * n;
+}
