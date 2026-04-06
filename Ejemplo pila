@@ -1,0 +1,83 @@
+// practicarPilas.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+#include "Pila.h"
+#define MAX 100
+using namespace std;
+
+int main()
+{
+	Pila p;
+	int opcion;
+	TipoDato elemento;
+
+	do
+	{
+		cout << "======= MENU PILA =======" << endl;
+		cout << "1. Apilar elemento" << endl;
+		cout << "2. Desapilar elemento" << endl;
+		cout << "3. Ver cima de la pila" << endl;
+		cout << "4. Ver pila" << endl;
+		cout << "5. Limpiar pila" << endl;
+		cout << "6. Verificar si la pila esta vacia" << endl;
+		cout << "0. Salir" << endl;
+		cout << "Seleccione una opcion" << endl;
+		cin >> opcion;
+
+		switch (opcion)
+		{
+		case 1:
+			cout << "Ingresa un elemento: ";
+			cin >> elemento;
+			if (p.Apilar(elemento))
+				cout << "Elemento apilado correctamente" << endl;
+			break;
+
+		case 2:
+			if (p.Desapilar())
+				cout << "Elemento desapilado correctamente." << endl;
+			break;
+
+		case 3:
+			if (p.CimaPila(elemento))
+				cout << "Elemento en la cima: " << elemento << endl;
+			break;
+
+		case 4:
+			p.VerPila();
+			break;
+
+		case 5:
+			p.LimpiarPila();
+			cout << "La pila fue limpiada." << endl;
+			break;
+
+		case 6:
+			if (p.PilaVacia())
+				cout << "La pila esta vacia." << endl;
+			else
+				cout << "La pila NO esta vacia. " << endl;
+			break;
+
+		case 0:
+			cout << "Usted ha salido del programa." << endl;
+			break;
+
+		default:
+			cout << "Opcion invalida." << endl;
+		}
+	} while (opcion != 0);
+		return 0;
+}
+	
+	
+// Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
+// Depurar programa: F5 o menú Depurar > Iniciar depuración
+
+// Sugerencias para primeros pasos: 1. Use la ventana del Explorador de soluciones para agregar y administrar archivos
+//   2. Use la ventana de Team Explorer para conectar con el control de código fuente
+//   3. Use la ventana de salida para ver la salida de compilación y otros mensajes
+//   4. Use la ventana Lista de errores para ver los errores
+//   5. Vaya a Proyecto > Agregar nuevo elemento para crear nuevos archivos de código, o a Proyecto > Agregar elemento existente para agregar archivos de código existentes al proyecto
+//   6. En el futuro, para volver a abrir este proyecto, vaya a Archivo > Abrir > Proyecto y seleccione el archivo .sln
